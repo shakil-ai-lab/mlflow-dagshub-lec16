@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_iris
-from sklearn.tree import decision_tree_classifier
+from sklearn.tree import DecisionTreeClassifier 
 import mlflow
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
@@ -23,9 +23,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # Train a Random Forest Classifier
 
 # Start an MLflow run
-
+mlflow.set_experiment("Iris Decision Tree Classifier Experiment")
 with mlflow.start_run():
-    model = decision_tree_classifier(max_depth=max_depth)
+    model = DecisionTreeClassifier(max_depth=max_depth)
     y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
     # Log parameters
