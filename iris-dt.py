@@ -26,6 +26,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 mlflow.set_experiment("Iris Decision Tree Classifier Experiment")
 with mlflow.start_run():
     model = DecisionTreeClassifier(max_depth=max_depth)
+    model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
     # Log parameters
