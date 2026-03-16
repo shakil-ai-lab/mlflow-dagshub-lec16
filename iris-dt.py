@@ -6,6 +6,10 @@ from sklearn.ensemble import RandomForestClassifier
 import mlflow
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
+import dagshub
+dagshub.init(repo_owner='shakil-ai-lab', repo_name='mlflow-dagshub-lec16', mlflow=True)
+
+mlflow.set_tracking_uri("https://dagshub.com/shakil-ai-lab/mlflow-dagshub-lec16.mlflow")
 # Load the Iris dataset
 iris = load_iris()
 X = pd.DataFrame(iris.data, columns=iris.feature_names)
