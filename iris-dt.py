@@ -23,8 +23,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # Train a Random Forest Classifier
 
 # Start an MLflow run
-mlflow.set_tracking_uri("file:./mlruns")
-mlflow.set_experiment("test_experiment")
+
 with mlflow.start_run():
     model = RandomForestClassifier(n_estimators=n_estimators, max_depth=max_depth)
     model.fit(X_train, y_train)
